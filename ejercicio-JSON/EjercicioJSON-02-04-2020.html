@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio JSON - Abril 02 - 2020</title>
+    <style>
+        h3 {
+            font-size: 20px;
+        }
+        
+        button {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista Música - DreamPop</h1>
+
+    <div>
+        <button id="mostrarButton">Mostrar Bandas, albums y fechas</button>
+    </div>
+
+    <div>
+        <h2>Agregar</h2>
+
+        <h3>Banda</h3>
+        <input type="text" id="agregarBandaInputBanda">
+        <h3>Album</h3>
+        <input type="text" id="agregarBandaInputAlbum">
+        <h3>Fecha</h3>
+        <input type="text" id="agregarBandaInputFecha">
+        <button id="agregarButton">Agregar Banda, album y fecha</button>
+    </div>
+
+    <div>
+        <h2>Modificar</h2>
+
+        <h3>Posicion Lista</h3>
+        <input type="number" id="posicionInput">
+        <h3>Banda</h3>
+        <input type="text" id="modificarBandaInputBanda">
+        <h3>Album</h3>
+        <input type="text" id="modificarBandaInputAlbum">
+        <h3>Fecha</h3>
+        <input type="text" id="modificarBandaInputFecha">
+
+        <button id="modificarButton">Modificar Banda, album y fecha</button>
+    </div>
+
+    <div>
+        <p id="lista"></p>
+    </div>
+
+    <script>
+        let bandas = {
+            bandasDP: [],
+            mostrarBandas: function() {
+                if (this.bandasDP.length === 0) {
+                    document.getElementById('lista').innerHTML = 'Tu lista está vacia.';
+                } else {
+                    document.getElementById('lista').innerHTML = '';
+                    for (let i = 0; i < this.bandasDP.length; i++) {
+                        document.getElementById('lista').innerHTML += `${this.bandasDP[i].nombreBanda} - ${this.bandasDP[i].nombreAlbum} - ${this.bandasDP[i].fecha} <br>`
+                    }
+                }
+            },
+            agregarBanda: function(nuevaBanda, nuevoAlbum, fecha) {
+                this.bandasDP.push({
+                    nombreBanda: nuevaBanda,
+                    nombreAlbum: nuevoAlbum,
+                    fecha: fecha
+                });
+                this.mostrarBandas();
+            },
+            cambiarBanda: function(posicion, nuevaBanda, nuevoAlbum, nuevaFecha) {
+                this.bandasDP[posicion].nombreBanda = nuevaBanda;
+                this.bandasDP[posicion].nombreAlbum = nuevoAlbum;
+                this.bandasDP[posicion].fecha = nuevaFecha;
+                this.mostrarBandas();
+            },
+        };
+
+        let mostrarBandasButton = document.getElementById('mostrarButton');
+
+        mostrarBandasButton.addEventListener('click', function() {
+            bandas.mostrarBandas();
+        });
+
+        let agregarBandaButton = document.getElementById('agregarButton');
+
+        agregarBandaButton.addEventListener('click', function() {
+            let agregarBandaInputBanda = document.getElementById('agregarBandaInputBanda');
+
+            bandas.agregarBanda(agregarBandaInputBanda.value, agregarBandaInputAlbum.value, agregarBandaInputFecha.value);
+
+            agregarBandaInputBanda.value = '';
+            agregarBandaInputAlbum.value = '';
+            agregarBandaInputFecha.value = '';
+        });
+
+        let modificarBandaButton = document.getElementById('modificarButton');
+
+        modificarBandaButton.addEventListener('click', function() {
+            let modificarBandaInput = document.getElementById('modificarBandaInputBanda');
+
+            let posicionInput = document.getElementById('posicionInput');
+
+            bandas.cambiarBanda(posicionInput.value, modificarBandaInputBanda.value, modificarBandaInputAlbum.value, modificarBandaInputFecha.value);
+
+            modificarBandaInputBanda.value = '';
+            modificarBandaInputAlbum.value = '';
+            modificarBandaInputFecha.value = '';
+        })
+    </script>
+</body>
+
+</html>
