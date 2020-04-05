@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
+
+    <title>Ejercicio 2 - Taller #2 - Javascript DOM</title>
+
+    <style>
+        body {
+            background-color: #603F83FF;
+            ;
+        }
+        
+        .botones {
+            margin-left: 36%;
+        }
+        
+        .botones>span {
+            cursor: pointer;
+            margin-left: 10px;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            color: #603F83FF !important;
+            text-decoration: none;
+            background: #C7D3D4FF;
+            padding: 10px;
+            display: inline-block;
+            transition: all 0.4s ease 0s;
+        }
+        
+        .botones>span:hover {
+            background-color: #f3f5f9;
+        }
+        
+        #boxes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-flow: wrap;
+        }
+        
+        .box {
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+            padding: 50px;
+            width: 80px;
+            color: #603F83FF !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #C7D3D4FF;
+            border: 4px solid #494949 !important;
+            transition: all 0.4s ease 0s;
+        }
+        
+        .box>p {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="botones">
+        <span id="agregarDiv">Agregar</span>
+        <span id="eliminarDivTodos">Eliminar Todos</span>
+        <span id="eliminarDivImpar">Eliminar Impares</span>
+        <span id="eliminarDivEspecifico">Eliminar Específico</span>
+    </div>
+
+    <div id="boxes">
+    </div>
+
+    <script>
+        let agregarDiv = document.getElementById('agregarDiv');
+
+        let eliminarDivTodos = document.getElementById('eliminarDivTodos');
+
+        let eliminarDivImpar = document.getElementById('eliminarDivImpar');
+
+        let eliminarDivEspecifico = document.getElementById('eliminarDivEspecifico');
+
+        let contDiv = 0;
+
+        let totalDivs = [];
+
+        agregarDiv.addEventListener('click', function() {
+            totalDivs.push(contDiv + 1);
+            document.getElementById('boxes').innerHTML += `<div class="box" id="${contDiv + 1}"> <p>${contDiv + 1}</p> </div>`;
+            contDiv++;
+        });
+
+        eliminarDivTodos.addEventListener('click', function() {
+            totalDivs = [];
+            document.getElementById('boxes').innerHTML = '';
+            contDiv = 0;
+        });
+
+        eliminarDivImpar.addEventListener('click', function() {
+            for (i = 0; i < totalDivs.length; i++) {
+                if (totalDivs[i] % 2 === 1) {
+                    let el = document.getElementById(`${totalDivs[i]}`);
+                    el.remove();
+                    totalDivs.splice(i, 1);
+                };
+            }
+        });
+
+        eliminarDivEspecifico.addEventListener('click', function() {
+            let numeroDiv = prompt('¿Qué número de div deseas eliminar?');
+            numeroDiv = Number(numeroDiv);
+            let eliminarEspecifico = document.getElementById(`${numeroDiv}`);
+            eliminarEspecifico.remove();
+            for (i = 0; i < totalDivs.length; i++) {
+                if (numeroDiv === totalDivs[i]) {
+                    totalDivs.splice(i, 1);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

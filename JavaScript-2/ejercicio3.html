@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Taller #2 - Javascript DOM</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #d1d8e0;
+        }
+        
+        .box {
+            position: absolute;
+            top: 20px;
+            left: 45%;
+            padding: 5px;
+            background: #f1f1f1;
+        }
+        
+        .box div {
+            width: 40px;
+            height: 40px;
+            float: left;
+            margin: 5px;
+            cursor: pointer;
+            text-indent: -9000px;
+        }
+        
+        #naranja {
+            background: #fa8231;
+        }
+        
+        #amarillo {
+            background: #fed330;
+        }
+        
+        #purpura {
+            background: #8854d0;
+        }
+        
+        #verde {
+            background: #20bf6b;
+        }
+        
+        #azul {
+            background: #2d98da;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="naranja"></div>
+        <div id="amarillo"></div>
+        <div id="purpura"></div>
+        <div id="verde"></div>
+        <div id="azul"></div>
+    </div>
+
+    <script>
+        document.getElementById('naranja').addEventListener('mouseover', function() {
+            document.body.style.backgroundColor = "#fa8231"
+        });
+
+        document.getElementById('amarillo').addEventListener('mouseover', function() {
+            document.body.style.background = "#fed330";
+        });
+
+        document.getElementById('purpura').addEventListener('mouseover', function() {
+            document.body.style.background = "#8854d0";
+        });
+
+        document.getElementById('verde').addEventListener('mouseover', function() {
+            document.body.style.background = "#20bf6b";
+        });
+
+        document.getElementById('azul').addEventListener('mouseover', function() {
+            document.body.style.background = "#2d98da";
+        });
+    </script>
+</body>
+
+</html>

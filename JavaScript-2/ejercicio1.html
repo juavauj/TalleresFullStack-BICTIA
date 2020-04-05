@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Taller #2 - Javascript DOM</title>
+    <style>
+        video {
+            min-width: 50%;
+            min-height: 50%;
+            margin: 100px auto 20px auto;
+            display: block;
+        }
+        
+        .player,
+        .volumen {
+            margin-left: 47%;
+        }
+        
+        span {
+            cursor: pointer;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+        }
+        
+        #atrasar {
+            background: url("icons/play-back-outline.svg") no-repeat top left;
+            background-size: contain;
+        }
+        
+        #play {
+            background: url("icons/play-outline.svg") no-repeat top left;
+            background-size: contain;
+        }
+        
+        #adelantar {
+            background: url("icons/play-forward-outline.svg") no-repeat top left;
+            background-size: contain;
+        }
+        
+        #subir {
+            background: url("icons/volume-high-outline.svg") no-repeat top left;
+            background-size: 30px;
+        }
+        
+        #bajar {
+            background: url("icons/volume-low-outline.svg") no-repeat top left;
+            background-size: 30px;
+        }
+        
+        #mute {
+            background: url("icons/volume-mute-outline.svg") no-repeat top left;
+            background-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <video id="video">
+        <source src="media/EnTusTierrasBailare.mp4" type="video/mp4"> 
+    </video>
+
+    <div class="player">
+        <span id="atrasar"></span>
+        <span id="play"></span>
+        <span id="adelantar"></span>
+    </div>
+
+    <div class="volumen">
+        <span id="bajar"></span>
+        <span id="subir"></span>
+        <span id="mute"></span>
+    </div>
+
+    <script>
+        let play = document.getElementById('play');
+        let subir = document.getElementById('subir');
+        let bajar = document.getElementById('bajar');
+        let mute = document.getElementById('mute');
+        let adelantar = document.getElementById('adelantar');
+        let atrasar = document.getElementById('atrasar');
+        let video = document.getElementById('video');
+        let volumen = 1;
+
+
+        play.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+
+        atrasar.addEventListener('click', function() {
+            if (video.currentTime <= 3) {
+                video.currentTime = 0;
+            } else {
+                video.currentTime -= 3;
+            }
+        });
+
+        adelantar.addEventListener('click', function() {
+            if (video.currentTime >= video.duration - 3) {
+                video.currentTime = video.duration - 1;
+            } else {
+                video.currentTime += 3;
+            }
+        });
+
+        subir.addEventListener('click', function() {
+            if (video.volume >= 0.95) {
+                volumen = 1;
+            } else {
+                volumen += 0.1;
+                video.volume = volumen;
+            }
+        });
+
+        bajar.addEventListener('click', function() {
+            if (video.volume <= 0.05) {
+                volumen = 0;
+            } else {
+                volumen -= 0.1;
+                video.volume = volumen;
+            }
+        });
+
+        mute.addEventListener('click', function() {
+            if (video.muted === true) {
+                video.muted = false;
+            } else {
+                video.muted = true;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Taller #2 - Javascript DOM</title>
+    <style>
+        img {
+            width: 700px;
+            height: auto;
+            margin: auto;
+            display: block;
+        }
+        
+        span {
+            cursor: pointer;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+        }
+        
+        .botones {
+            margin-top: 20px;
+            margin-left: 47%;
+        }
+        
+        #zoomIn {
+            background: url("icons/add-outline.svg") no-repeat top left;
+            background-size: contain;
+        }
+        
+        #zoomOut {
+            background: url("icons/remove-outline.svg") no-repeat top left;
+            background-size: contain;
+        }
+        
+        #reset {
+            background: url("icons/refresh-outline.svg") no-repeat top left;
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="fallOfRebel" src="media/TheFalloftheRebelAngels.jpg" alt="Pieter Bruegel the Elder - The Fall of the Rebel Angels">
+
+    <div class="botones">
+        <span id="zoomIn"></span>
+        <span id="zoomOut"></span>
+        <span id="reset"></span>
+    </div>
+
+
+
+    <script>
+        let zoomIn = document.getElementById('zoomIn');
+        let zoomOut = document.getElementById('zoomOut');
+        let reset = document.getElementById('reset');
+        let fallOfRebel = document.getElementById('fallOfRebel');
+        let width = 700;
+
+        zoomIn.addEventListener('click', function() {
+
+            width += 100;
+
+            fallOfRebel.style.transition = "all 0.6s";
+
+            fallOfRebel.style.width = `${width}px`;
+        });
+
+        zoomOut.addEventListener('click', function() {
+
+            width -= 100;
+
+            fallOfRebel.style.transition = "all 0.6s";
+
+            fallOfRebel.style.width = `${width}px`;
+
+        });
+
+        reset.addEventListener('click', function() {
+
+            width = 700;
+
+            fallOfRebel.style.transition = "all 1s";
+
+            fallOfRebel.style.width = `${width}px`;
+
+        });
+    </script>
+
+</body>
+
+</html>
