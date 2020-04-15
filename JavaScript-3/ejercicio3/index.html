@@ -4,17 +4,25 @@
 <head>
     <meta charset="UTC-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>Ejercicio 3 - Taller #3 - Javascript Avanzado</title>
 </head>
 
 <body>
-    <div id="lineasPalabra">
 
+    <div class="container">
+        <h1 class="text-center">Ahorcado</h1>
+        <div class="float-right">Intentos Fallidos: <span id='fallidos'>0</span> de <span id='maxIntentos'></span></div>
+        <div class="text-center">
+            <img id='imagenAhorcado' src="img/0.png" alt="" height="auto" width="1000px">
+            <p>Adivina la cápital de paises latinoamericanos:</p>
+            <p id="teclaOprimida"></p>
+            <div id="teclado"></div>
+            <button class="btn btn-info" onClick="reset()">Jugar</button>
+        </div>
     </div>
 
-    <div id="teclado">
-    </div>
     <script src="script.js"></script>
 </body>
 
