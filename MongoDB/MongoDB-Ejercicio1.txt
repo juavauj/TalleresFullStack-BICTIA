@@ -1,0 +1,50 @@
+// Coleccion de series
+
+	> uno = {nombreSerie: "Twin Peaks", cantidadTemporadas: 3, duracionCapitulo: 47, plataformaTransmision: "ABC"} 
+
+	> dos = {nombreSerie: "Berlin Alexanderplatz", cantidadTemporadas: 1, duracionCapitulo: 60, plataformaTransmision: "West German Television"}
+
+	> tres = {nombreSerie: "Dekalog", cantidadTemporadas: 1, duracionCapitulo: 60, plataformaTransmision: "Warner Bros"}
+
+	> cuatro = {nombreSerie: "Seinfeld", cantidadTemporadas: 9, duracionCapitulo: 23, plataformaTransmision: "NBC"}
+
+	> cinco = {nombreSerie: "South Park", cantidadTemporadas: 24, duracionCapitulo: 23, plataformaTransmision: "Comedy Central"}
+
+
+// Agregar series y crear coleccion
+
+	> db.series.insert([uno, dos, tres, cuatro, cinco])
+
+
+// Consultar series (cantidadTemporada 4 - 10, mostrar solo el nombre)
+
+	> db.series.find( {cantidadTemporadas: {$gte: 4, $lte: 10} }, {nombreSerie: 1, _id: 0}).pretty()
+                
+        > { "nombreSerie" : "Seinfeld" }
+
+
+// Actualizar series (agregar campo Genero)
+
+	> db.series.update( {}, {$set: {genero: "Comedia"} }, {multi: true}
+
+	> db.series.find()                                                                                                                                                                    
+	{ "_id" : ObjectId("5eb427873e017ad41558d0b4"), "nombreSerie" : "Twin Peaks", "cantidadTemporadas" : 3, "duracionCapitulo" : 47, "plataformaTransmision" : "ABC", "genero" : "Comedia" }
+        { "_id" : ObjectId("5eb427873e017ad41558d0b5"), "nombreSerie" : "Berlin Alexanderplatz", "cantidadTemporadas" : 1, "duracionCapitulo" : 60, "plataformaTransmision" : "West German Television", "genero" : "Comedia" }
+	{ "_id" : ObjectId("5eb427873e017ad41558d0b6"), "nombreSerie" : "Dekalog", "cantidadTemporadas" : 1, "duracionCapitulo" : 60, "plataformaTransmision" : "Warner Bros", "genero" : "Comedia" }
+	{ "_id" : ObjectId("5eb427873e017ad41558d0b7"), "nombreSerie" : "Seinfeld", "cantidadTemporadas" : 9, "duracionCapitulo" : 23, "plataformaTransmision" : "NBC", "genero" : "Comedia" }
+	{ "_id" : ObjectId("5eb427873e017ad41558d0b8"), "nombreSerie" : "South Park", "cantidadTemporadas" : 24, "duracionCapitulo" : 23, "plataformaTransmision" : "Comedy Central", "genero" : "Comedia"}
+
+	> db.series.update( {nombreSerie: "Twin Peaks"}, {$set: {genero: "Crimen"} } )
+	> db.series.update( {nombreSerie: "Dekalog"}, {$set: {genero: "Drama"} } )
+	> db.series.update( {nombreSerie: "Berlin Alexanderplatz"}, {$set: {genero: "Drama"} } )
+	> db.series.update( {nombreSerie: "South Park"}, {$set: {genero: "Comedia"} } )
+
+// Eliminar series (eliminar la serie que uds quieran)
+
+	> db.series.remove( {nombreSerie: "South Park"} )
+
+	> db.series.find()                                                                                                                                                                    
+	{ "_id" : ObjectId("5eb427873e017ad41558d0b4"), "nombreSerie" : "Twin Peaks", "cantidadTemporadas" : 3, "duracionCapitulo" : 47, "plataformaTransmision" : "ABC", "genero" : "Crimen" }
+        { "_id" : ObjectId("5eb427873e017ad41558d0b5"), "nombreSerie" : "Berlin Alexanderplatz", "cantidadTemporadas" : 1, "duracionCapitulo" : 60, "plataformaTransmision" : "West German Television", "genero" : "Drama" }
+	{ "_id" : ObjectId("5eb427873e017ad41558d0b6"), "nombreSerie" : "Dekalog", "cantidadTemporadas" : 1, "duracionCapitulo" : 60, "plataformaTransmision" : "Warner Bros", "genero" : "Drama" }
+	{ "_id" : ObjectId("5eb427873e017ad41558d0b7"), "nombreSerie" : "Seinfeld", "cantidadTemporadas" : 9, "duracionCapitulo" : 23, "plataformaTransmision" : "NBC", "genero" : "Comedia" }
