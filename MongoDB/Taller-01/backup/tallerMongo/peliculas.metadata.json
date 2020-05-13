@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"tallerMongo.peliculas"}],"uuid":"71e5195bcd0b46f699186c6a337cf9f0"}

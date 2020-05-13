@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"tallerMongo.juegos"}],"uuid":"da07c36a99174250b0a4b68eab0d6a78"}
