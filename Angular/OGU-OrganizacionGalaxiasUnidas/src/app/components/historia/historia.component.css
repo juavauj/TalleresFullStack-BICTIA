@@ -1,0 +1,289 @@
+@font-face {
+  font-family: MontserratHeavy;
+  src: url(/assets/fonts/MontDemo-Heavy.otf);
+}
+
+@font-face {
+  font-family: MontserratLight;
+  src: url(/assets/fonts/MontDemo-ExtraLight.otf);
+}
+
+@font-face {
+  font-family: CardoRegular;
+  src: url(/assets/fonts/Cardo-Regular.ttf);
+}
+
+@font-face {
+  font-family: CardoItalic;
+  src: url(/assets/fonts/Cardo-Italic.ttf);
+}
+
+@font-face {
+  font-family: CardoBold;
+  src: url(/assets/fonts/Cardo-Bold.ttf);
+}
+
+.containerHistoria {
+  display: grid;
+  height: auto;
+  width: 100vw;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "navbar"
+    "historiaContent";
+  animation: fadeIn;
+  animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* NAVBAR */
+
+.navbar {
+  grid-area: navbar;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    ". . . logo logo logo . . ."
+    ". . . rutas rutas rutas . . .";
+}
+
+.logo {
+  grid-area: logo;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: "letraO letraG letraU";
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-shadow: 2px 1px 2px black;
+}
+
+.logo {
+  color: #ffffff;
+  font-family: MontserratHeavy;
+  font-size: 90px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.letraO {
+  grid-area: letraO;
+  display: grid;
+  align-self: end;
+}
+
+.letraG {
+  grid-area: letraG;
+  display: grid;
+  align-self: end;
+}
+
+.letraU {
+  grid-area: letraU;
+  display: grid;
+  align-self: end;
+}
+
+.rutas {
+  grid-area: rutas;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: "historia hacemos galaxias";
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-shadow: 2px 1px 2px black;
+}
+
+.rutas p {
+  color: #ffffff;
+  font-family: MontserratHeavy;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+}
+
+.rutas img {
+  cursor: pointer;
+}
+
+.rutas p:focus,
+img:focus,
+.logo:focus {
+  outline: 0;
+}
+
+.galaxias {
+  grid-area: galaxias;
+  display: grid;
+}
+
+.galaxias img {
+  display: grid;
+  justify-self: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.galaxias p {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+}
+
+.galaxias:hover p {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+
+.hacemos {
+  grid-area: hacemos;
+  display: grid;
+}
+
+.hacemos img {
+  display: grid;
+  justify-self: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.hacemos p {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+}
+
+.hacemos:hover p {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+
+.historia {
+  grid-area: historia;
+  display: grid;
+}
+
+.historia img {
+  display: grid;
+  justify-self: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.historia p {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+}
+
+.historia:hover p {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+/* CONTENIDO */
+
+.historiaContent {
+  display: grid;
+  grid-area: historiaContent;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1050px 1050px;
+  grid-template-areas: "content01" "content02";
+  background-image: url(/assets/img/historia01.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content01 {
+  grid-area: content01;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.containerContent01 {
+  display: grid;
+  color: #ffffff;
+  font-family: MontserratHeavy;
+  font-size: 150px;
+  letter-spacing: 0.25em;
+  place-self: center;
+  text-shadow: 2px 1px 2px black;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.content02 {
+  grid-area: content02;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". containerContent02 .";
+  background-image: url("/assets/img/historiaBackground.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.containerContent02 {
+  grid-area: containerContent02;
+  display: grid;
+  text-align: justify;
+  justify-content: center;
+  align-self: start;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.698);
+}
+
+.containerContent02 p {
+  color: #ffffff;
+  font-family: CardoRegular;
+  font-size: 33px;
+  text-shadow: 2px 1px 2px black;
+  padding-bottom: 40px;
+}

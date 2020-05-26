@@ -1,0 +1,9 @@
+@font-face {
+  font-family: MontserratHeavy;
+  src: url(/assets/fonts/MontDemo-Heavy.otf);
+}
+
+@font-face {
+  font-family: MontserratLight;
+  src: url(/assets/fonts/MontDemo-ExtraLight.otf);
+}

@@ -1,0 +1,276 @@
+@font-face {
+  font-family: MontserratHeavy;
+  src: url(/assets/fonts/MontDemo-Heavy.otf);
+}
+
+@font-face {
+  font-family: MontserratLight;
+  src: url(/assets/fonts/MontDemo-ExtraLight.otf);
+}
+
+.containerIndex {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  background-image: url(/assets/img/stars-compressor.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: fadeIn;
+  animation-duration: 2s;
+}
+
+/* LOGO */
+
+.logo {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: span 4;
+  grid-row-start: 1;
+  grid-row-end: 10;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.logoO {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.logoO svg {
+  animation: fadeIn ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: 1s;
+}
+
+.logoG {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 7;
+}
+
+.logoG svg {
+  animation: fadeIn ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  opacity: 0;
+}
+
+.logoU {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 7;
+  grid-row-end: 10;
+}
+
+.logoU svg {
+  animation: fadeIn ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* PLANETAS */
+
+.galaxias p:focus,
+img:focus,
+.hacemos p:focus,
+img:focus,
+.historia p:focus,
+img:focus {
+  outline: 0;
+}
+
+.galaxias {
+  display: grid;
+  grid-column-start: 4;
+  grid-column-end: 8;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+p {
+  color: #ffffff;
+  font-family: MontserratHeavy;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  text-shadow: 2px 1px 2px black;
+}
+
+.galaxias img {
+  display: grid;
+  max-width: 100%;
+  max-height: 100%;
+  align-self: end;
+  justify-self: center;
+  animation: fadeIn ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+  animation-delay: 0.7s;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.galaxias p {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+}
+
+.galaxias p:hover {
+  opacity: 1;
+}
+
+.hacemos {
+  display: grid;
+  grid-column-start: -8;
+  grid-column-end: -4;
+  grid-row-start: 2;
+  grid-row-end: 6;
+}
+
+.hacemos img {
+  display: grid;
+  max-width: 100%;
+  max-height: 100%;
+  justify-self: end;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  animation: fadeIn ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  cursor: pointer;
+  animation-delay: 0.5s;
+}
+
+.hacemos p {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  width: 700px;
+}
+
+.hacemos p:hover {
+  opacity: 1;
+}
+
+.historia {
+  display: grid;
+  grid-column-start: -7;
+  grid-column-end: end;
+  grid-row-start: 3;
+  grid-row-end: end;
+}
+
+.historia img {
+  display: grid;
+  max-width: 100%;
+  max-height: 100%;
+  align-self: end;
+  justify-self: center;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  animation: fadeIn ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  cursor: pointer;
+  animation-delay: 0.3s;
+}
+
+.historia img:hover {
+  opacity: 0.85;
+  transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -webkit-transition: opacity 0.1s ease-in-out;
+}
+
+.historia p {
+  width: 700px;
+  position: absolute;
+  top: 60%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+}
+
+.historia p:hover {
+  opacity: 1;
+}
+
+/* Backward */
+.hvr-backward {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-backward:hover,
+.hvr-backward:focus,
+.hvr-backward:active {
+  -webkit-transform: translateX(-70px);
+  transform: translateX(-70px);
+}
